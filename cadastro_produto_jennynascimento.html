@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+
+<html lang="pt-br">
+
+   
+    <script>
+
+        function Cadastro()  {
+ 
+          var vnomep =  document.getElementById("nomep").value;
+ 
+          var vdescricaop =  document.getElementById("descricaop").value;
+ 
+          var vvalorp =  document.getElementById("valorp").value;
+
+          var vfornecedor =  document.getElementById("fornecedor").value;
+ 
+
+          var dadosajax = {
+
+        'nome_produto': nome_produto,
+
+        'descricao_produto': descricao_produto,
+
+        'valor_produto': valor_produto,
+
+        'fornecedor_produto': fornecedor_produto,
+
+        };
+
+        var pageurl = 'grava_produto.php';
+
+        $.ajax({
+
+        url: pageurl,
+
+        data: dadosajax,
+
+        type: 'POST',
+
+        cache: false,
+
+        error: function(XMLHttpRequest, textStatus, errorThrown)
+
+        {
+
+            alert("Erro Gravação produto!!");
+
+         },
+
+        success: function(result)
+
+        {
+
+       alert("Gravação produto efetuada com sucesso");
+
+       return;
+
+        }
+
+        });
+}
+
+ 
+    </script>
+
+
+
+<head>
+
+      <title>Casa da Tecnologia</title>
+
+   </head>
+
+   <body>
+
+      <h1>Cadastro de produtos</h1><p></p>
+
+      <p>Inclua as informações do produto abaixo</p>
+
+      <font> Nome do produto: </font>
+
+      <input type="text" id="nomep"></input><p></p>
+
+      <font> Descrição do produto: </font>
+
+      <input type="text" id="descricaop"></input><p></p>
+
+      <font> Valor do produto: </font>
+
+      <input type="text" id="valorp"></input><p></p>
+
+      <font> Fornecedor: </font>
+
+      <input type="text" id="fornecedor"></input><p></p>
+
+      <input type="button" name="botao-ok" value="Cadastrar" id="botao_cadastra" onClick="Cadastro">
+
+   </body>
+
+</html>
